@@ -9,11 +9,13 @@
 ### View all except logged in users, profile, update profile
 
 - **GET** - /view/connections (see all users in app except the logged in one)
-- **PATCH** - /view/profile
+- **GET** - /view/profile
+- **PATCH** - /view/profile/edit
 
-### Specific user
+### Message specific user
 
-- **POST** - /message/:userID (see messages of specific user)
+- **GET** - /message/:userID (see messages of specific user)
+- **POST** - /message/send/:userID (send messages to specific user)
 
 ## Important notes
 
@@ -28,3 +30,5 @@
 - Only sends the cookie over HTTPS, not HTTP.ithout secure: true, the cookie can be sent over unencrypted HTTP, which exposes it to attackers on the network (like public Wi-Fi sniffing).
 
 🔒 Always use HTTPS in production.
+
+### We can only send a string in res.send(), we can't send an instance of model in it
